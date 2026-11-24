@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+</head>
+<body>
+
+<h2>Signup Form</h2>
+
+<form id="form">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="email" id="email"><br><br>
+    Password: <input type="password" id="pass"><br><br>
+
+    <button type="submit">Signup</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+document.getElementById("form").onsubmit = function(e) {
+    e.preventDefault();
+
+    let n = document.getElementById("name").value;
+    let em = document.getElementById("email").value;
+    let p = document.getElementById("pass").value;
+
+    if (n == "" || em == "" || p == "") {
+        document.getElementById("msg").innerHTML =
+        "Please fill all fields";
+    }
+    else {
+        localStorage.setItem("name", n);
+        localStorage.setItem("email", em);
+        localStorage.setItem("password", p);
+
+        document.getElementById("msg").innerHTML =
+        "Signup Successful!";
+    }
+};
+</script>
+
+</body>
+</html>
